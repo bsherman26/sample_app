@@ -7,8 +7,12 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1',    text: 'Sign in') }
-    it { should have_selector('title', text: 'Sign in') }
+    it { should have_selector('h1',       text: 'Sign in') }
+    it { should have_selector('title',    text: 'Sign in') }
+    it { should_not have_link('Account',  href: '#') }
+#    it { should_not have_link('Profile',  href: user_path(user)) }       # I have no idea why this doesn't work
+#    it { should_not have_link('Settings', href: edit_user_path(user)) }  # I have no idea why this doesn't work
+    it { should_not have_link('Sign out', href: signout_path) }
   end
 
   describe "signin" do
