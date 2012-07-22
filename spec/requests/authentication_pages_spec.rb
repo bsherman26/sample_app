@@ -128,5 +128,27 @@ describe "Authentication" do
         specify { response.should redirect_to(root_path) }
       end
     end
+
+    describe "for signed in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before { sign_in user }
+         
+#        visit signin_path
+#        fill_in "Email",    with: user.email
+#        fill_in "Password", with: user.password
+#        click_button "Sign in"
+#      end
+
+      describe "visiting the new user page" do
+        before { visit signup_path }
+        it { should have_selector('title', text: user.name) }
+      end
+
+      describe "submitting to the create action" do
+        before { post users_path }
+        specify { response.should redirect_to(user_path(user)) }  # I did it both this way
+        it { should have_selector('title', text: user.name) }     # and this way to see what would happen
+      end
+    end
   end
 end
