@@ -1,3 +1,4 @@
+require "bundler/capistrano"
 set :application, "sample_app"
 set :scm, :git
 set :repository,  "git://github.com/bsherman26/sample_app.git"
