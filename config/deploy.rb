@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-default_run_options[:pty] = true
+load "deploy/assets"
 
 set :application, "sample_app"
 set :scm, :git
@@ -9,7 +9,7 @@ role :web, "basileis.com"                          # Your HTTP server, Apache/et
 role :app, "basileis.com"                          # This may be the same as your `Web` server
 role :db,  "basileis.com", :primary => true        # This is where Rails migrations will run
 set :deploy_to, "/apps/sample_app"
-load "deploy/assets"
+default_run_options[:pty] = true
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
