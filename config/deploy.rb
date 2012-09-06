@@ -4,7 +4,7 @@ load "deploy/assets"
 set :application, "sample_app"
 set :scm, :git
 set :repository,  "git://github.com/bsherman26/sample_app.git"
-set :user, "brian"
+set :user, "sample_app"
 role :web, "basileis.com"                          # Your HTTP server, Apache/etc
 role :app, "basileis.com"                          # This may be the same as your `Web` server
 role :db,  "basileis.com", :primary => true        # This is where Rails migrations will run
