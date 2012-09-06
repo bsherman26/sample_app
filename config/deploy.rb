@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 load "deploy/assets"
+set :use_sudo, false
 
 set :application, "sample_app"
 set :scm, :git
